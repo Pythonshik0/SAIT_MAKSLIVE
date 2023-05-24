@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}MAKS&LIVE{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container _container">
+            <a href="" class="header__logo">
+                MAKS&LIVE
+            </a>
+            <nav class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">Telegram</a>
+                    </li>
+                    <li class="menu__list">
+                        <a class="menu__link" href="#">Resume</a>
+                    </li>
+                    <li class="menu__list">
+                        <a class="menu__link" href="#">My works</a>
+                    </li>
+                    <li class="menu__list">
+                        <a class="menu__link" href="{% url 'register' %}">Registration</a>
+                    </li>
+                    <li class="menu__list">
+                    {% if user.is_authenticated %}
+                        <a class="menu__link" href="{% url 'profile' %}">Profile</a>
+                        <a class="menu__link" href="{% url 'logout' %}">Exit</a>
+                    {% else %}
+                        <a class="menu__link" href="{% url 'login' %}">Entrance</a>
+                    {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <div class="page__main-block main-block">
+            <div class="main-block__container _container">
+                <div class="main-block_body">
+                    <h1 class="main-block__title">Здесь вы найдете информация обо мне и с чего все начиналось</h1>
+                    <div class="main-block__text">Как я начинал использовать Python, какие книги я читал и чему придерживался</div>
+                    <div class="main-block__buttons">
+                        <a href="" class="main-block__button main-block__button_orange">Читать про основы Python</a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-block__image _ibg">
+                <img src="https://images.wallpaperscraft.ru/image/single/astronavt_kosmonavt_skafandr_145485_1280x720.jpg" alt="cover">
+            </div>
+        </div>
+
+        <section class="page__advantages advantages">
+            <div class="advantages__container _container">
+                <div class="advantages__header header-block">
+                    <h2 class="header-block__title">Что нужно для начала и как начать писать код</h2>
+                    <div class="header-block__sub-title">Смотри ниже, как все начиналось</div>
+                    <div class="article-list">
+                    {% for article in articles %}
+                        <div class="article">
+                            <h2 class="article-title">
+                                <a class='article-title-one' href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+                                <p class="article-summary">{{ article.summary }}</p>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer footer">
+        🔖Здесь будет ваша реклама!
+    </footer>
+</div>
+{% endblock %}

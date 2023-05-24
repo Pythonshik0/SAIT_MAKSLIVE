@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Регистрация на сайте MAKS&LIVE{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container _container">
+             <a href="" class="header__logo">
+                MAKS&LIVE
+            </a>
+            <nav class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a class="menu__link" href="{% url 'home_page' %}">Если хочешь вернутся на главную, нажми на меня</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <div class="page__main-block main-block">
+            <div class="main-block__container _container">
+                <div class="main-block_body">
+                     <div class="registration">
+                            <form method="POST">
+                                {% csrf_token %}
+                                    <fieldset class="form-group">
+                                        <legend class="border-bottom mb-4">Здравствуй, дорогой читатель, если хочешь зарегистрируйся на сайте</legend>
+                                        {{ form|crispy }}
+                                    </fieldset>
+                                    <div class="form-group">
+                                        <button class="btn btn-outline-info" type="submit">Регистрация</button>
+                                    </div>
+                            </form>
+                                    <div class="text-muted_1">
+                                        <small class="text-muted_2">
+                                            Уже есть аккаунт? <a class="ml-2" href="{% url 'login' %}">Вход</a>
+                                        </small>
+                                    </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="main-block__image _ibg">
+        <img src="/media/images/fon_2.png" alt="cover">
+    </div>
+</div>
+{% endblock %}

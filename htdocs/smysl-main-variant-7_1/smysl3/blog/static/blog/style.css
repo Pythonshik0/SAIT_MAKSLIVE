@@ -1,0 +1,701 @@
+/* -----------Обнуление----------------------------------------------*/
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,
+body {
+    height: 100%;
+    line-height: 1;
+    font-size: 22px;
+    color: darkgrey;
+    font-weight: 500;
+
+}
+/* -----------Конец обнуления----------------------------------------------------------*/
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+._container {
+    max-width: 1046px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    /*Две строчки ниже не учитывают наш отступ в 20px в ширину
+    нашего меню и при сужении экрана не будет прилипания*/
+    padding: 0px 20px;
+    box-sizing: content-box;
+}
+._ibg {
+    position: relative;
+}
+._ibg img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+}
+
+
+/* -----------Верстаем меню сайта верх------------------------------------------------------------*/
+.header{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    /* чтобы шапка наша была на 1 плане
+    задаем значение з индекса 50 но можно и больше*/
+    z-index: 50;
+}
+.header__container {
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.header__logo {
+    font-size: 34px;
+    font-weight: 900;
+    color: darkgrey;
+    margin-bottom: 23px;
+}
+.header__menu {
+    margin: 0 0 0 10px;
+}
+/* Пункты ниже адаптируют под мобильные и планшетные
+   разрешения*/
+@media (max-width: 992px) {
+    .header__menu {
+    margin: 0px 0px 0px 70px;
+}
+}
+@media (max-width: 767px) {
+    .header__menu {
+    margin: 0px 0px 0px 30px;
+}
+}
+@media (max-width: 479px) {
+    .header__menu {
+    margin: 0px 0px 0px 20px;
+}
+}
+@media (max-width: 479px) {
+    .menu__link {
+    font-size: 18px;
+}
+}
+.menu {
+    padding: 5px 0;
+}
+.menu__list {
+    flex-wrap: wrap;
+    /* flex-wrap: wrap позволяет нашему меню ломаться
+    и адаптироваться к изменению разширения экрана*/
+    display: flex;
+}
+.menu__item {
+
+}
+.menu__link:hover {
+    color: #a83217;
+}
+.menu__item {
+    margin: 0px 20px 0px 0px;
+
+}
+
+.menu__link {
+    color: darkgrey;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px 20px 0px 0px;
+}
+/* -----------page---------------------------------------------------------*/
+
+.page {
+    flex: 1 1 auto;
+}
+.page__main-block {
+
+}
+.page_services {
+    /* мы используем мэрджин с отрицательным значение для того,
+    чтобы остальные блоки вместе с нашими 3 менюшками поднялись вверх
+    Если же мы будет использовать position top -80px, то остальные блоки не
+    поднимуться*/
+    z-index: 5;
+    position:relative;
+    margin: -80px 0px 0px 0px;
+}
+.page__advantages {
+
+}
+
+/* -----------MAIN BLOCK----------------------------------------------------------*/
+
+.main-block__container {
+
+}
+.main-block {
+    position: relative;
+}
+.main-block_body {
+    padding: 184px 0px 191px 0px;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+/*Обращаемся ко всем обьектам 1 уровня это знак > а знак * значит под
+любым тэгом*/
+.main-block_body > *:not(:last-child){
+    margin: 0px 0px 35px 0px;
+}
+
+.main-block__title{
+    font-size: 40px;
+    line-height: 24px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+.main-block__text{
+    color: darkgrey;
+    font-size: 20px;
+    line-height: 20px;
+}
+.main-block__buttons{
+    display: inline-block;
+}
+.main-block__button {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    min-height: 48px;
+    letter-spacing: 0.2px;
+
+    line-height: 150%;
+    text-align: center;
+}
+.main-block__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+}
+.main-block__button_orange {
+    color: darkgrey;
+    background: #a83217;
+}
+
+@media (max-width: 1300px ) {
+    .main-block__image img {
+        object-position: center;
+    }
+}
+
+@media (max-width: 999px ) {
+    .main-block__image img {
+        object-position: center;
+        position: absolute;
+    }
+}
+
+/*-------------------4 КВАДРАТНЫЕ МЕНЮ -----------------------------*/
+
+.item-service__text {
+    color: #1f1612;
+}
+.page {
+    background: #382e26;
+}
+
+/*---------------------------------------------СТАТЬИ И ЗАГОЛОВОК НАЧАЛА----------------------------*/
+
+.advantages {
+
+}
+.advantages__container {
+
+}
+.advantages__header {
+
+}
+.header-block {
+    font-size: 24px;
+
+}
+.header-block__title {
+    text-align: center;
+    font-size: 30px;
+    line-height: 120%;
+    font-weight: 600;
+    margin-top: 30px;
+    letter-spacing: 0.2px;
+
+}
+.header-block__sub-title:not(:last-child) {
+    margin: 0px 0px 43px 0px;
+}
+.header-block__sub-title {
+    text-align: center;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+
+}
+.article-title {
+    font-size: 30px;
+}
+
+.article-title-one {
+    color: darkgrey;
+    font-weight: 600;
+
+}
+.article-title-one:hover {
+    color: #a83217;
+}
+
+.article-summary {
+
+}
+
+/*----------------------------------article page пока не надо------------------------------------------*/
+ .article-title-st2 {
+     display: inline-block;
+     color: darkgrey;
+     text-decoration: none;
+     padding: .5em 2em;
+     outline: none;
+     border-width: 2px 0;
+     border-radius: 8px;
+     background-color: #2d0a01;
+     transition: 0.2s;
+     font-size: 34px;
+}
+
+.article-text-st2 {
+     font-size: 34px;
+     display: inline-block;
+     color: darkgrey;
+     text-decoration: none;
+     padding: .5em 2em;
+     outline: none;
+     border-width: 2px 0;
+     border-radius: 8px;
+     background-color:#2d0a01;
+     transition: 0.2s;
+}
+
+/*------------------------------------footer----------------------------------------*/
+
+.footer {
+    font-size: 24px;
+    color: darkgrey;
+    background-color: #382e27;
+    padding: 5px 0;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    filter: alpha(opacity=100);
+    text-align: center;
+}
+/*------------------------------------article page----------------------------------------*/
+
+.wrapper-2 {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+._container {
+    max-width: 1046px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    /*Две строчки ниже не учитывают наш отступ в 20px в ширину
+    нашего меню и при сужении экрана не будет прилипания*/
+    padding: 0px 20px;
+    box-sizing: content-box;
+}
+._ibg-2 {
+    position: relative;
+}
+._ibg-2 img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+}
+
+
+/* -----------Верстаем меню сайта верх------------------------------------------------------------*/
+.header-2{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    /* чтобы шапка наша была на 1 плане
+    задаем значение з индекса 50 но можно и больше*/
+    z-index: 50;
+}
+.header__container-2 {
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.header__logo-2 {
+    font-size: 34px;
+    font-weight: 900;
+    color: darkgrey;
+}
+.header__menu-2 {
+    margin: 0 0 0 130px;
+}
+/* Пункты ниже адаптируют под мобильные и планшетные
+   разрешения*/
+@media (max-width: 992px) {
+    .header__menu-2 {
+    margin: 0px 0px 0px 70px;
+}
+}
+@media (max-width: 767px) {
+    .header__menu-2 {
+    margin: 0px 0px 0px 30px;
+}
+}
+@media (max-width: 479px) {
+    .header__menu-2 {
+    margin: 0px 0px 0px 20px;
+}
+}
+@media (max-width: 479px) {
+    .menu__link-2 {
+    font-size: 18px;
+}
+}
+.menu-2 {
+    padding: 5px 0;
+}
+.menu__list-2 {
+    flex-wrap: wrap;
+    /* flex-wrap: wrap позволяет нашему меню ломаться
+    и адаптироваться к изменению разширения экрана*/
+    display: flex;
+}
+.menu__item-2 {
+
+}
+.menu__link-2:hover {
+    color: #a83217;
+}
+.menu__item-2 {
+    margin: 0px 20px 0px 0px;
+
+}
+
+.menu__link-2 {
+    color: darkgrey;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px 20px 0px 0px;
+}
+/* -----------page---------------------------------------------------------*/
+
+.page-2 {
+    flex: 1 1 auto;
+    margin: 120px 0px 0px 0px;
+
+}
+.page__main-block {
+
+}
+.page_services-2 {
+    /* мы используем мэрджин с отрицательным значение для того,
+    чтобы остальные блоки вместе с нашими 3 менюшками поднялись вверх
+    Если же мы будет использовать position top -80px, то остальные блоки не
+    поднимуться*/
+    z-index: 5;
+    position:relative;
+    margin: -80px 0px 0px 0px;
+}
+
+.article-text-st2-2 {
+    padding: 20px 0;
+    line-height: 44px;
+    font-size: 25px;
+
+
+}
+.article-title-st2-2 {
+    font-size: 28px;
+    font-weight: 600;
+
+}
+.wrapper-2 {
+    background-color: #312019;
+}
+/*----------------------Работа с статьями------------------------*/
+
+.maks_1 {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.image_article {
+
+}
+/*----------------------Работа c регистрациями------------------------*/
+
+.text-muted {
+    color: aliceblue;
+}
+
+.registration_akk {
+
+}
+
+.form-group_login_2 {
+    padding-top: 20px;
+
+}
+/*----------------------страница login------------------------*/
+.enter {
+    background:none;
+    font-weight: 700;
+    color: #a8a8a9;
+    font-size: 28px;
+    display: inline-block;
+    text-decoration: none;
+    user-select: none;
+    padding: .2em 1em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    margin-bottom: 10px;
+}
+
+.enter:hover { background: rgb(159, 43, 85); }
+.enter:active { background: #d2610d; }
+
+.entrance {
+    background:none;
+    font-weight: 700;
+    color: #a8a8a9;
+    font-size: 32px;
+    text-decoration: none;
+    user-select: none;
+    outline: none;
+    transition: 0.2s;
+    margin-bottom: 30px;
+}
+
+.text-muted_2 {
+    color: #a8a8a9;
+}
+
+.btn .btn-outline-info {
+    margin-bottom: 20px;
+}
+
+.ml-2 {
+    background:none;
+    font-weight: 700;
+    color: #a8a8a9;
+    font-size: 23px;
+    display: inline-block;
+    text-decoration: none;
+    user-select: none;
+    outline: none;
+    transition: 0.2s;
+    margin-bottom: 10px;
+}
+
+.ml-2:hover { color: rgb(210, 97, 13); }
+.ml-2:active { background: #d2610d; }
+/*----------------------Профиль пользователя------------------------*/
+.media-body_one {
+    margin-left: 30px;
+}
+
+.main-block__button{
+    display: inline-block;
+    margin: 30px 0px;
+}
+
+.main-block__button_orange {
+    color: #2c1f19;
+    background: #a83217;
+    background-image: linear-gradient(to right, #cc3e1b 1%, #4d160b 51%, #a83217 100%);
+    background-size: 100% auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transition: .3s;
+    border-radius: 2px;
+}
+.thank_you_for_registering {
+    line-height: 40px;
+}
+
+.main-block__button_orange:hover {
+    color: rgb(0, 0, 0);
+    background: #ad835f;
+}
+.main-block__button_orange:active { background: #b7b7b7; }
+
+.mail_and_nickname_block {
+    margin-left: 500px;
+    position: absolute;
+    margin-top: -260px;
+}
+
+.thank_you_for_registering {
+    margin-top: 20px;
+}
+
+.account-heading_one_2 {
+    color: #606060;
+    background-image: linear-gradient(to right, #000000 100%, #4d160b 50%, #50190d 100%);
+    background-size: 100% auto;
+    transition: .3s;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    min-height: 48px;
+    letter-spacing: 0.2px;
+    line-height: 150%;
+    text-align: center;
+}
+/*--------------------------------Оставить отзыв-----------------------*/
+.feedback_button {
+    color: #2c1f19;
+    background: #a83217;
+    background-image: linear-gradient(to right, #f4da82 1%, #a97e13 51%, #e9d173 100%);
+    background-size: 100% auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transition: .3s;
+    border-radius: 2px;
+    margin: 30px 0px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    min-height: 48px;
+    line-height: 150%;
+    text-align: center;
+}
+
+.feedback_button:hover {
+    color: #2c1f19;
+    background: #ad835f;
+}
+
+.comment_name_user {
+
+    display: inline-block;
+    border-radius: 2px;
+}
+.comment_email {
+}
+
+.comment_user {
+    color: #e0e0e0;
+    display: inline-block;
+    padding: 10px 10px;
+    border: 1px solid #b2aeae;
+    border-radius: 9px;
+    width: 600px;
+}
+
+.style_user_and_email {
+    display: inline-block;
+    padding: 10px 8px;
+    border: 1px solid #b2aeae;
+    width: 600px;
+    border-radius: 9px;
+}
+
+.comment_user_full_article {
+    margin-top: 50px;
+}
+
+/*--------------------------------logout-----------------------*/
+.youre_out {
+    text-align: center;
+    display: inline-block;
+    padding: 10px 8px;
+    border: 1px solid #ffffff;
+    width: 700px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 30px;
+}
+.main-block_body {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.Log_in_to_your_account_1 {
+    text-align: center;
+    padding: 10px 8px;
+    border: 1px solid #813004;
+    width: 300px;
+    border-radius: 9px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #a24f11;
+    color: #cccaca;
+}
+.Log_in_to_your_account_2 {
+    text-align: center;
+    padding: 10px 8px;
+    border: 1px solid #813004;
+    width: 300px;
+    border-radius: 9px;
+    display: inline-block;
+    margin-left: 92px;
+    margin-right: auto;
+    background-color: #a24f11;
+    color: #cccaca;
+}
+.border-top {
+    color: #a8a8a9;
+}

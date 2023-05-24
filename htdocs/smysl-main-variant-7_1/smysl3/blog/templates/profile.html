@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Ваш профиль{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container _container">
+             <a href="" class="header__logo">
+                MAKS&LIVE
+            </a>
+            <nav class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a class="menu__link" href="{% url 'home_page' %}">Если хочешь вернутся на главную, нажми на меня</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <div class="page__main-block main-block">
+            <div class="main-block__container _container">
+                <div class="main-block_body">
+
+                    <div class="content-section_one">
+                        <div class="media_one">
+                            <img class="rounded-circle_one account-img" src="/media/images/Winston_Ch..png">
+
+                                <div class="media-body_one">
+                                    <div class="main_block_registration">
+                                        <div class="mail_and_nickname_block">
+                                            <div class="mail_and_nickname_block_user">
+                                                <h1 class="account-heading_one_2">Ваше имя на сайте:</h1>
+                                                <h2 class="account-heading_one">{{ user.username }}</h2>
+                                            </div>
+                                            <div class="mail_and_nickname_block_user">
+                                                <h1 class="account-heading_one_2">Ваш email на сайте:</h1>
+                                                <p class="text-secondary_one">{{ user.email }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="additional_information_for_the_user">
+                                        <div class="thank_you_for_registering">Спасибо за регистрацию на моем сайте, после регистрации тебе доступен дополнительный контент, по кнопке ниже.</div>
+                                        <a class="main-block__button main-block__button_orange" href="{% url 'additional_content' %}">Дополнительный контент</a>
+                                    </div>
+                                        <a class="feedback_button" href="{% url 'comment' %}">Оставить отзыв</a>
+                                            <div class="comments_user">
+                                               {% for i in comment %}
+                                                <div class="comment_user_full_article">
+                                                    <div class="style_user_and_email">
+                                                        <h1 class="comment_name_user">Имя пользователя : {{ i.name }}</h1><p class="comment_email">Email пользователя : {{ i.email}}</p>
+                                                    </div>
+                                                        <h1 class="comment_user">Комментарий : {{ i.body }}</h1>
+                                               {% endfor %}
+                                                </div>
+                                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="main-block__image _ibg">
+        <img src="/media/images/fon_2.png" alt="cover">
+    </div>
+</div>
+{% endblock content %}

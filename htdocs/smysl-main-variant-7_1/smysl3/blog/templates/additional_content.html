@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Дополнительный контент{% endblock %}
+
+{% block content %}
+<div class="wrapper-2">
+    <div class="main-block__image _ibg">
+        <div class="image_article">
+            <img src="/media/images/fon_black.png" alt="cover">
+        </div>
+    </div>
+    <header class="header-2">
+        <div class="header__container-2 _container">
+             <a href="" class="header__logo-2">
+                MAKS&LIVE
+            </a>
+            <nav class="header__menu-2 menu">
+                <ul class="menu__list-2">
+                    <li class="menu__item-2">
+                        <a class="menu__link-2" href="{% url 'home_page' %}">Если хочешь вернутся на главную, нажми на меня</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page-2">
+        <div class="page__main-block-2 main-block">
+            <div class="main-block__container-2 _container">
+                <div class="additional_text_and_categories">
+                    <h1 class="additional_text">{{ additional.title }}</h1>
+                    <div class="additional-categories">{{ additional.categories }}</div>
+                </div>
+                <div class="main-block_body-2">
+                    <div class="additional_full_text">{{ additional.full_text | safe }}</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}
